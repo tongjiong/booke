@@ -1,15 +1,15 @@
 <?php
 namespace app\index\controller;
-
-class Index
+use think\Controller;
+class Index extends Controller
 {
     public function index()
     {
-        return '<h2 style="color:red;">弘德 请他吃饭 请他睡觉 请他抽烟 叫帮我做张图都不给我做，天理不容!</h2>';
+        return $this->fetch('index');
     }
 
-    public function hello($name = 'ThinkPHP5')
-    {
-        return 'hello,' . $name;
-    }
+    // public function hello($name = 'ThinkPHP5')
+    // {
+    //     return 'hello,' . $name;
+    // }
 }
