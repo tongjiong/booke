@@ -1,8 +1,14 @@
 {extend name="public:admin_base" /}
 {block name="body"}
-	<div class="layui-body" style="padding:20px;">
     <blockquote class="layui-elem-quote">
-      <h2>轮播图</h2>
+        <div class="layui-row">
+          <div class="layui-col-md4">
+            <h2 class="h2_left">轮播图</h2>
+          </div>
+          <div class="layui-col-md4 layui-col-md-offset4">
+            <button class="layui-btn btn_right" data-title="添加轮播图" data-content="{:url('banner_add')}">添加轮播图</button>
+          </div>
+        </div>
     </blockquote>
       <table class="layui-table">
         <thead>
@@ -10,6 +16,7 @@
             <th>序号</th>
             <th>轮播图片</th>
             <th>排序</th>
+            <th>是否开启</th>
             <th>创建时间</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -20,6 +27,7 @@
             <td>贤心</td>
             <td>人生就像是一场修行</td>
             <td>人生就像是一场修行</td>
+            <th>是否开启</th>
             <td>2016-11-29</td>
             <td>2016-11-29</td>
             <td>
@@ -31,6 +39,7 @@
             <td>贤心</td>
             <td>人生就像是一场修行</td>
             <td>人生就像是一场修行</td>
+            <th>是否开启</th>
             <td>2016-11-29</td>
             <td>2016-11-29</td>
             <td>
@@ -42,3 +51,4 @@
       </table>
   </div>
 {/block}
+

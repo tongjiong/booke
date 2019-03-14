@@ -10,4 +10,8 @@ class Banner extends Base
         return $this->fetch();
     }
 
+    public function banner_add()
+    {
+        return $this->fetch();
+    }
 }

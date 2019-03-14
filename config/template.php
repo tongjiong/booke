@@ -35,5 +35,6 @@ return [
 
     'tpl_replace_string'   => [
         '__STATIC__'   => '/booke/public/static',
+        '__PROJECT__'   => '/booke/',
     ],
 ];

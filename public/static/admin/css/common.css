@@ -8,3 +8,47 @@
 	float: left;
 	margin:0 15px 0 10px;
 }
+.btn_right{
+	float: right!important;
+}
+.h2_left{
+	line-height: 40px!important;
+}
+.popup-addpage{
+	padding: 20px;
+	width: 80%;
+}
+/*为banner*/
+#image_src_banner{
+	width: 400px;
+	height: 150px;
+	margin: 10px 0;
+	border: 3px solid #009688;
+	border-bottom:30px solid #009688;
+}
+#image_src_banner i{
+	margin-left:50%; 
+	font-size: 25px;
+	color: #fff;
+}
+
+
+/*为小图片的*/
+#image_src{
+	width: 150px;
+	height: 150px;
+	margin: 10px 0;
+	border: 3px solid #009688;
+	border-bottom:30px solid #009688;
+
+}
+#image_src i{
+	margin-left:60px; 
+	font-size: 25px;
+	color: #fff;
+}
+
+.image_src{
+	width: 100%;
+	height: 150px;
+}
