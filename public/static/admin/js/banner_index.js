@@ -12,23 +12,26 @@ layui.use('element', function(){
         content: datacontent //iframe的url
       }); 
     }) 
+  
+  $(".image_btn").click(function(){
+      $("#image_src_banner").hide();
+  }) 
 });
 
-//Demo
+
+// 表单模型
 layui.use('form', function(){
-  var form = layui.form;
-  //监听提交
-  form.on('submit(formDemo)', function(data){
-    layer.msg(JSON.stringify(data.field));
-    return false;
-  });
+  // var form = layui.form;
+  // //监听提交
+  // form.on('submit(formDemo)', function(data){
+  //   layer.msg(JSON.stringify(data.field));
+  //   return false;
+  // });
 });
 
+//图片模型
 layui.use('upload', function(){
   var upload = layui.upload;
-  //执行实例
-  // var file_img= $('input[name="file"]').val();
-
   var uploadInst = upload.render({
     elem: '#upload_img', //绑定元素
     url: Uploadimg_model, //上传接口
@@ -46,7 +49,8 @@ layui.use('upload', function(){
           layer.close(layer.load());        
           layer.msg(data.msg);
           $("#image_hidden").val(data.img_oute);
-          $("#image_src img").attr('src',project+data.img_oute);
+          $(".image_src").attr('src',project+data.img_oute);
+          $("#image_src_banner").show();
       }else{
         layer.msg(data.msg);
       }

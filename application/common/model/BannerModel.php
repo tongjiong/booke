@@ -1,11 +1,9 @@
 <?php
 
-// zh_article_category 文章的发布排序模型
-
 namespace app\common\model;
 use think\Model; //加载模型
 
-class Banner_surface extends Model
+class BannerModel extends Model
 {
 	protected $pk = 'id';//默认主键
 	protected $table = 'banner_surface';//默认数据表
