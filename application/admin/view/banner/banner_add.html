@@ -1,13 +1,25 @@
-{extend name="public:admin_common" /}
-{block name="bodyt"}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+	var Uploadimg_model = "{:url('Uploadimg/upload_fun')}";
+	var banner_insert_model ="{:url('banner/banner_insert')}";
+	var project = '__PROJECT__';
+</script>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
 	<div class="layui-container popup-addpage">  
 	  <div class="layui-row">
 	    <div class="layui-col-md5">
-	      	<form class="layui-form" action="">
+	      	<form class="layui-form" action="{:url('banner/banner_insert')}">
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">轮播标题：</label>
 			    <div class="layui-input-block">
-			      <input type="text" name="title" required  lay-verify="required" placeholder="请输入轮播图标题" autocomplete="off" class="layui-input">
+			      <input type="text" name="title" required lay-verify="required" placeholder="请输入轮播图标题" autocomplete="on" class="layui-input">
 			    </div>
 			  </div>
 
@@ -15,7 +27,7 @@
 			    <label class="layui-form-label">上传图片：</label>
 			    <div class="layui-input-block">
 			      <button type="button" class="layui-btn" id="upload_img"><i class="layui-icon">&#xe67c;</i>上传图片</button>
-			      <input type="hidden" name="image" value="" id="image_hidden">
+			      <input type="hidden" name="image" value="" id="image_hidden" required lay-verify="image_hidden">
 			      <div id="image_src_banner" style="display:none;">
 			      	<img src="" class="image_src" >
 			      	<i class="layui-icon layui-icon-close image_btn"></i>  
@@ -33,7 +45,7 @@
 			   <div class="layui-form-item">
 			    <label class="layui-form-label">优先级：</label>
 			    <div class="layui-input-block">
-			      <input type="text" name="sort" required  lay-verify="required" placeholder="请输入数字越大排越前" autocomplete="off" class="layui-input">
+			      <input type="text" name="sort" placeholder="请输入数字越大排越前" autocomplete="off" class="layui-input">
 			    </div>
 			  </div>
 			
@@ -46,4 +58,8 @@
 	    </div>
 	  </div>
 	</div>
-{/block}
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<script src="__STATIC__/admin/js/banner_index.js"></script>

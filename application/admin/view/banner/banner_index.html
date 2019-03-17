@@ -1,12 +1,19 @@
-{extend name="public:admin_base" /}
-{block name="body"}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
     <blockquote class="layui-elem-quote">
         <div class="layui-row">
           <div class="layui-col-md4">
             <h2 class="h2_left">轮播图</h2>
           </div>
           <div class="layui-col-md4 layui-col-md-offset4">
-            <button class="layui-btn btn_right" data-title="添加轮播图" data-content="{:url('banner_add')}">添加轮播图</button>
+            <button class="layui-btn btn_right" data-title="添加轮播图" data-content="{:url('banner_add')}" data-width="700px" data-height="600px">添加轮播图</button>
           </div>
         </div>
     </blockquote>
@@ -14,40 +21,37 @@
         <thead>
           <tr>
             <th>序号</th>
+            <th>轮播标题</th>
             <th>轮播图片</th>
-            <th>排序</th>
             <th>是否开启</th>
+            <th>排序</th>
             <th>创建时间</th>
-            <th>更新时间</th>
             <th>操作</th>
           </tr> 
         </thead>
         <tbody>
-          <tr>
-            <td>贤心</td>
-            <td>人生就像是一场修行</td>
-            <td>人生就像是一场修行</td>
-            <th>是否开启</th>
-            <td>2016-11-29</td>
-            <td>2016-11-29</td>
-            <td>
-              <button class="layui-btn layui-btn-normal">编辑</button>
-              <button class="layui-btn layui-btn-danger">删除</button>
-            </td>
-          </tr>
-          <tr>
-            <td>贤心</td>
-            <td>人生就像是一场修行</td>
-            <td>人生就像是一场修行</td>
-            <th>是否开启</th>
-            <td>2016-11-29</td>
-            <td>2016-11-29</td>
-            <td>
-              <button class="layui-btn layui-btn-normal">编辑</button>
-              <button class="layui-btn layui-btn-danger">删除</button>
-            </td>
-          </tr>
+          {volist name="list" id="v"}
+            <tr>
+              <td>{$v.id}</td>
+              <td>{$v.title}</td>
+              <td>
+                <div id="layer-photos-demo" class="layer-photos-demo">
+                  <img layer-pid="" layer-src="__PROJECT__{$v.image}" src="__PROJECT__{$v.image}" alt="{$v.title}" width="120" height="50">
+                </div>
+              </td>
+              <td>{$v.status}</td>
+              <td>{$v.sort}</td>
+              <td>{$v.create_time}</td>
+              <td>
+                <button class="layui-btn layui-btn-normal">编辑</button>
+                <button class="layui-btn layui-btn-danger">删除</button>
+              </td>
+            </tr>
+          {/volist}
         </tbody>
       </table>
+      <div class="text-center" style="float: right;">{$list|raw}</div>
   </div>
-{/block}
+</body>
+</html>
+{include file="public/admin_common_js"}
