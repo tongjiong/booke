@@ -2,7 +2,6 @@
 /.vscode
 /vendor
 uploads
-thinkphp
 *.log
 .env
 .DS_Store
