@@ -13,7 +13,7 @@
             <h2 class="h2_left">轮播图</h2>
           </div>
           <div class="layui-col-md4 layui-col-md-offset4">
-            <button class="layui-btn btn_right" data-title="添加轮播图" data-content="{:url('banner_add')}" data-width="700px" data-height="600px">添加轮播图</button>
+            <button class="layui-btn btn_right btn_starts" data-title="添加轮播图" data-content="{:url('banner_add')}" data-width="700px" data-height="600px">添加轮播图</button>
           </div>
         </div>
     </blockquote>
@@ -43,7 +43,7 @@
               <td>{$v.sort}</td>
               <td>{$v.create_time}</td>
               <td>
-                <button class="layui-btn layui-btn-normal">编辑</button>
+                <button class="layui-btn layui-btn-normal btn_starts" data-title="编辑" data-content="{:url('banner_edit')}?id={$v.id}" data-width="700px" data-height="600px">编辑</button>
                 <button class="layui-btn layui-btn-danger">删除</button>
               </td>
             </tr>

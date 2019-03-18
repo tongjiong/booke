@@ -1,26 +1,10 @@
-
-<!--  <div class="layui-footer">
-  
-    
-  </div> -->
+<div class="layui-footer">
+      <p>大心后台</p>
+  </div>
 </div>
 </body>
 </html>
 <script src="__STATIC__/layui/jquery-2.1.1.min.js"></script>
 <script src="__STATIC__/layui/layui.js"></script>
 <script src="__STATIC__/layui/lay/modules/layer.js"></script>
-<!-- <script src="__STATIC__/admin/js/admin_common.js"></script> -->
-<script>
-//JavaScript代码区域
-layui.use('element', function(){
-  var element = layui.element;
- 	//Hash地址的定位
-  var layid = location.hash.replace(/^#test=/, '');
-  element.tabChange('test', layid);
-  
-  element.on('tab(test)', function(elem){
-    location.hash = 'test='+ $(this).attr('lay-id');
-  });
-});
-</script>
-
+<script src="__STATIC__/admin/js/index.js"></script>
