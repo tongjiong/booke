@@ -19,7 +19,7 @@ layui.use('element', function(){
       element.tabChange('test',urll);
     }
   };
-  
+
   // 点击添加Tab项 
   $('.site-demo-active').on('click', function(){
     var othis = $(this), type = othis.data('type');
@@ -33,31 +33,4 @@ layui.use('element', function(){
   element.on('tab(test)', function(elem){
     window.location.hash = $(this).attr('lay-id');
   });
-
-  //iframe
-  document.onkeydown = function (e) {
-    //键盘按键控制        
-    e = e || window.event;
-    if (e.keyCode == 116) {
-    var iframe = $('body');
-    var src = iframe.attr('src');
-    e.preventDefault(); 
-    var iframeSrc = src;
-    iframe.attr('src',iframeSrc);        
-    }    
-  }
-  document.onkeydown = function (e) {
-    e = e || window.event;
-    if (e.keyCode == 116) {
-      var iframe = $('.Mainindex', parent.document);
-      var iframeSrc = iframe[0].src;
-      // console.log(iframe[0])
-      e.preventDefault();
-      iframe[0].src = iframeSrc;return false;
-    }
-  }
-  document.oncontextmenu = function(){
-    return false;
-  }
-
 });

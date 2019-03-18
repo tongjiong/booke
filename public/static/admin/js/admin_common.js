@@ -22,3 +22,29 @@ layer.photos({
       }); 
     }) 
 // });
+
+$(".btn_delete").click(function(){
+    var id = $(this).data('id');
+    layer.confirm('确定要删除吗', function (index) {
+      layer.close(index);
+      layer.load();
+      $.ajax({
+        url:delect_model,
+        data:{id:id},
+        success:function(data){
+          layer.close(layer.load());
+          if(data.code == 1){
+            layer.msg(data.msg);
+          }else{
+            layer.msg(data.msg);
+          }
+          setTimeout(function () {
+              var index = parent.layer.getFrameIndex(window.name);
+              parent.layer.close(index);
+              window.location.reload();
+          }, 3500)
+        }
+      })
+  });
+})
+

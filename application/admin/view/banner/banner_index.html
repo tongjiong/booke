@@ -5,6 +5,9 @@
   <title>layui</title>
   {include file="public/admin_common_css"}
 </head>
+<script>
+  var delect_model = "{:url('banner/banner_delect')}";
+</script>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <blockquote class="layui-elem-quote">
@@ -44,7 +47,7 @@
               <td>{$v.create_time}</td>
               <td>
                 <button class="layui-btn layui-btn-normal btn_starts" data-title="编辑" data-content="{:url('banner_edit')}?id={$v.id}" data-width="700px" data-height="600px">编辑</button>
-                <button class="layui-btn layui-btn-danger">删除</button>
+                <a class="layui-btn layui-btn-danger btn_delete" data-id="{$v.id}">删除</a>
               </td>
             </tr>
           {/volist}

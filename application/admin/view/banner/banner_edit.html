@@ -16,7 +16,7 @@
 	<div class="layui-container popup-addpage">  
 	  <div class="layui-row">
 	    <div class="layui-col-md5">
-	      	<form class="layui-form" action="{:url('banner/banner_insert')}">
+	      	<form class="layui-form" action="{:url('banner/banner_update')}" method="post">
 			  <div class="layui-form-item">
 			    <label class="layui-form-label">轮播标题：</label>
 			    <div class="layui-input-block">
@@ -29,8 +29,8 @@
 			    <div class="layui-input-block">
 			      <button type="button" class="layui-btn" id="upload_img"><i class="layui-icon">&#xe67c;</i>上传图片</button>
 			      <input type="hidden" name="image" value="{$list.image}" id="image_hidden" required lay-verify="image_hidden">
-			      <div id="image_src_banner" style="display:none;">
-			      	<img src="" class="image_src" value="{$list.image}">
+			      <div id="image_src_banner" style="display:block;">
+			      	<img src="__PROJECT__{$list.image}" class="image_src">
 			      	<i class="layui-icon layui-icon-close image_btn"></i>  
 			      </div>
 			    </div>
@@ -52,6 +52,7 @@
 			
 			  <div class="layui-form-item">
 			    <div class="layui-input-block">
+			       <input type="hidden" name="id" value="{$list.id}">
 			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
 			    </div>
 			  </div>

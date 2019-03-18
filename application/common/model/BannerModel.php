@@ -12,6 +12,6 @@ class BannerModel extends Model
 	protected $createTime = 'create_time'; //创建时间变量
 	// protected $updateTime = 'update_time';	//更新时间变量
 	protected $dateFormat = 'Y-m-d h:i'; //设置时间的格式 
-
+	// protected $field = true;
 }
 
