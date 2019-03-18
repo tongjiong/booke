@@ -4,5 +4,4 @@
 uploads
 *.log
 .env
-thinkphp
 .DS_Store
