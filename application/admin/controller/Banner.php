@@ -10,7 +10,10 @@ class Banner extends Base
 
     public function banner_edit()
     {   
-
+        $id = Request::param('id');
+        $list = BannerModel::where(['id'=>$id])->find();
+        // dump($list);
+        $this->assign('list', $list);
         return $this->fetch();
     }
     

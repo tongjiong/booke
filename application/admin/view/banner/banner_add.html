@@ -62,4 +62,23 @@
 </body>
 </html>
 {include file="public/admin_common_js"}
-<script src="__STATIC__/admin/js/banner_index.js"></script>
+<script src="__STATIC__/admin/js/upload_img.js"></script>
+<script>
+	// 表单模型
+	layui.use('form', function(){
+	    var form = layui.form;
+	  // //监听提交
+	 // form.on('submit(formDemo)', function(data){
+	 //     layer.msg(JSON.stringify(data.field));
+	 //   return false;
+	 //  }
+	    form.verify({
+	        // 图片验证
+	        image_hidden: function(value){ //value：表单的值、item：表单的DOM对象
+	            if(value == ''){
+	              return '请上传图片';
+	            }
+	        },
+	    });
+	});
+</script>
