@@ -6,7 +6,7 @@
 .ileft-tb2{
 	font-size: 14px;
 	float: left;
-	margin:0 15px 0 10px;
+	margin: 0 5px 0 30px;
 }
 .btn_right{
 	float: right!important;
@@ -31,7 +31,6 @@
 	font-size: 25px;
 	color: #fff;
 }
-
 
 /*为小图片的*/
 #image_src{
@@ -65,5 +64,5 @@
 }
 .tab-fixed{
 	position: fixed;
-	width:88%;
+	width:89%;
 }

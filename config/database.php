@@ -15,7 +15,7 @@ return [
     // 服务器地址
     'hostname'        => '47.99.111.253',
     // 数据库名
-    'database'        => 'tong_booke',
+    'database'        => 'booke',
     // 用户名
     'username'        => 'root',
     // 密码

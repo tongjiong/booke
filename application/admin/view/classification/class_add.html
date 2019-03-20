@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<!-- <script>
+	var Uploadimg_model = "{:url('Uploadimg/upload_fun')}";
+	var project = '__PROJECT__';
+</script> -->
+<style>
+	.layui-form-label{
+		width: 90px!important;
+	}
+	.layui-input-block{
+		margin-left: 130px!important;
+	}
+</style>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-container popup-addpage">  
+	  <div class="layui-row">
+	    <div class="layui-col-md5">
+	      	<form class="layui-form" action="{:url('Classification/class_insert')}" method="post">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">定义分类id：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="category_id" required lay-verify="required" placeholder="请输入定义分类id" autocomplete="on" class="layui-input">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">分类名称：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="category_name" required lay-verify="required" placeholder="请输入分类名称" autocomplete="on" class="layui-input">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">分类描述：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="category_describe" required lay-verify="required" placeholder="请输入分类描述" autocomplete="on" class="layui-input">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">是否启用：</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="status" lay-skin="switch" lay-text="开启|关闭" value="1">
+			    </div>
+			  </div>
+			  
+			   <div class="layui-form-item">
+			    <label class="layui-form-label">优先级：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="sort" placeholder="请输入数字越大排越前" autocomplete="off" class="layui-input">
+			    </div>
+			  </div>
+			
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			  </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<!-- <script src="__STATIC__/admin/js/upload_img.js"></script> -->
+<script>
+	// 表单模型
+	layui.use('form', function(){
+	    var form = layui.form;
+	  // //监听提交
+	 // form.on('submit(formDemo)', function(data){
+	 //     layer.msg(JSON.stringify(data.field));
+	 //   return false;
+	 //  }
+	    // form.verify({
+	    //     // 图片验证
+	    //     image_hidden: function(value){ //value：表单的值、item：表单的DOM对象
+	    //         if(value == ''){
+	    //           return '请上传图片';
+	    //         }
+	    //     },
+	    // });
+	});
+</script>

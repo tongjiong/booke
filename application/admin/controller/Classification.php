@@ -1,15 +1,15 @@
 <?php
 namespace app\admin\controller;
 use app\common\controller\Base;
-use app\common\model\BannerModel;
+use app\common\model\ClassModel;
 use think\facade\Request;
 
-class Banner extends Base
+class Classification extends Base
 {
-    public function banner_delect(){
+    public function class_delect(){
         $id = Request::param('id');
         // dump($id);
-        $data = BannerModel::destroy($id);
+        $data = ClassModel::destroy($id);
         if($data){
             $res = [
                 'code'  => 1,
@@ -26,11 +26,11 @@ class Banner extends Base
     }
 
     //更新操作
-    public function banner_update(){
+    public function class_update(){
         $param_update = Request::param();
-        unset($param_update['file']);//排除字段
+        // unset($param_update['file']);//排除字段
         // dump($param_update['id']);die;
-        $data = BannerModel::where('id',$param_update['id'])->update($param_update);
+        $data = ClassModel::where('id',$param_update['id'])->update($param_update);
         if($data){
             $this->success('更新成功');
         }else{
@@ -38,39 +38,39 @@ class Banner extends Base
         }
     }
     //编辑页显示
-    public function banner_edit()
+    public function class_edit()
     {   
         $id = Request::param('id');
-        $list_edit = BannerModel::where(['id'=>$id])->find();
+        $list_edit = ClassModel::where(['id'=>$id])->find();
         // dump($list);
         $this->assign('list', $list_edit);
         return $this->fetch();
     }
     
     //主页banner
-    public function banner_index()
+    public function class_index()
     {   
-        $list_index = BannerModel::order("sort desc")->paginate(10,false);
+        $list_index = ClassModel::order("sort desc")->paginate(10,false);
         // dump($list);die;
         $this->assign('list', $list_index);
         return $this->fetch();
     }
 
     //添加页面渲染
-    public function banner_add()
+    public function class_add()
     {   
         return $this->fetch();
     }
     
     // 添加操作
-    public function banner_insert(){
-    	$param_add = Request::param();
-
-    	$data = BannerModel::create($param_add);
+    public function class_insert(){
+        $param_add = Request::param();
+        
+        $data = ClassModel::create($param_add);
         if($data){
             $this->success('添加成功');
         }else{
             $this->error('添加失败');
         }
-    }	
+    }   
 }

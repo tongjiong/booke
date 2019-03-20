@@ -6,17 +6,17 @@
   {include file="public/admin_common_css"}
 </head>
 <script>
-  var delect_model = "{:url('banner/banner_delect')}";
+  var delect_model = "{:url('Classification/class_delect')}";
 </script>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <blockquote class="layui-elem-quote">
         <div class="layui-row">
           <div class="layui-col-md4">
-            <h2 class="h2_left">轮播图</h2>
+            <h2 class="h2_left">栏目分类</h2>
           </div>
           <div class="layui-col-md4 layui-col-md-offset4">
-            <button class="layui-btn btn_right btn_starts" data-title="添加轮播图" data-content="{:url('banner/banner_add')}" data-width="700px" data-height="600px">添加轮播图</button>
+            <button class="layui-btn btn_right btn_starts" data-title="添加分类" data-content="{:url('classification/class_add')}" data-width="700px" data-height="600px">添加分类</button>
           </div>
         </div>
     </blockquote>
@@ -24,8 +24,9 @@
         <thead>
           <tr>
             <th>序号</th>
-            <th>轮播标题</th>
-            <th>轮播图片</th>
+            <th>分类Id</th>
+            <th>分类名称</th>
+            <th>分类介绍</th>
             <th>是否开启</th>
             <th>排序</th>
             <th>创建时间</th>
@@ -33,20 +34,17 @@
           </tr> 
         </thead>
         <tbody>
-          {volist name="list" id="v"}
+           {volist name="list" id="v"}
             <tr>
               <td>{$v.id}</td>
-              <td>{$v.title}</td>
-              <td>
-                <div id="layer-photos-demo" class="layer-photos-demo">
-                  <img layer-pid="" layer-src="__PROJECT__{$v.image}" src="__PROJECT__{$v.image}" alt="{$v.title}" width="120" height="50">
-                </div>
-              </td>
+              <td>{$v.category_id}</td>
+              <td>{$v.category_name}</td>
+              <td>{$v.category_describe}</td>
               <td>{$v.status}</td>
               <td>{$v.sort}</td>
               <td>{$v.create_time}</td>
               <td>
-                <button class="layui-btn layui-btn-normal btn_starts" data-title="编辑" data-content="{:url('banner/banner_edit')}?id={$v.id}" data-width="700px" data-height="600px">编辑</button>
+                <button class="layui-btn layui-btn-normal btn_starts" data-title="编辑" data-content="{:url('classification/CLASS_edit')}?id={$v.id}" data-width="700px" data-height="600px">编辑</button>
                 <a class="layui-btn layui-btn-danger btn_delete" data-id="{$v.id}">删除</a>
               </td>
             </tr>

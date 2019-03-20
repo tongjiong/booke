@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+	var Uploadimg_model = "{:url('Uploadimg/upload_fun')}";
+	// var banner_insert_model ="{:url('banner/banner_insert')}";
+	var project = '__PROJECT__';
+</script>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-container popup-addpage">  
+	  <div class="layui-row">
+	    <div class="layui-col-md5">
+	      	<form class="layui-form" action="{:url('banner/banner_insert')}" method="post">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">博文标题：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="title" required lay-verify="required" placeholder="请输入轮播图标题" autocomplete="on" class="layui-input">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">上传图片：</label>
+			    <div class="layui-input-block">
+			      <button type="button" class="layui-btn" id="upload_img"><i class="layui-icon">&#xe67c;</i>上传图片</button>
+			      <input type="hidden" name="image" value="" id="image_hidden" required lay-verify="image_hidden">
+			      <div id="image_src_banner" style="display:none;">
+			      	<img src="" class="image_src" >
+			      	<i class="layui-icon layui-icon-close image_btn"></i>  
+			      </div>
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">是否启用：</label>
+			    <div class="layui-input-block">
+			      <input type="checkbox" name="status" lay-skin="switch" lay-text="开启|关闭" value="1">
+			    </div>
+			  </div>
+			  
+			   <div class="layui-form-item">
+			    <label class="layui-form-label">优先级：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="sort" placeholder="请输入数字越大排越前" autocomplete="off" class="layui-input">
+			    </div>
+			  </div>
+			
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			  </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<script src="__STATIC__/admin/js/upload_img.js"></script>
+<script>
+	// 表单模型
+	layui.use('form', function(){
+	    var form = layui.form;
+	  // //监听提交
+	 // form.on('submit(formDemo)', function(data){
+	 //     layer.msg(JSON.stringify(data.field));
+	 //   return false;
+	 //  }
+	    form.verify({
+	        // 图片验证
+	        image_hidden: function(value){ //value：表单的值、item：表单的DOM对象
+	            if(value == ''){
+	              return '请上传图片';
+	            }
+	        },
+	    });
+	});
+</script>
