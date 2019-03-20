@@ -9,4 +9,8 @@ class Bowe extends Base
     public function Bowe_index(){
        return $this->fetch();
     }
+
+    public function Bowe_add(){
+       return $this->fetch();
+    }
 }
