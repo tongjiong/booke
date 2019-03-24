@@ -13,4 +13,9 @@ class Bowe extends Base
     public function Bowe_add(){
        return $this->fetch();
     }
+
+    public function Bowe_insert(){
+    	$param_update = Request::param();
+    	dump($param_update);
+    }
 }
