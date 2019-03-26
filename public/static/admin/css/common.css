@@ -19,21 +19,21 @@
 	width: 80%;
 }
 /*为banner*/
-#image_src_banner{
+.img_big{
 	width: 400px;
 	height: 150px;
 	margin: 10px 0;
 	border: 3px solid #009688;
 	border-bottom:30px solid #009688;
 }
-#image_src_banner i{
+.img_big i{
 	margin-left:50%; 
 	font-size: 25px;
 	color: #fff;
 }
 
 /*为小图片的*/
-#image_src{
+.img_small{
 	width: 150px;
 	height: 150px;
 	margin: 10px 0;
@@ -41,7 +41,7 @@
 	border-bottom:30px solid #009688;
 
 }
-#image_src i{
+.img_small i{
 	margin-left:60px; 
 	font-size: 25px;
 	color: #fff;

@@ -6,16 +6,24 @@ use think\facade\Request;
 
 class Bowe extends Base
 {
-    public function Bowe_index(){
+    public function bowe_index(){
        return $this->fetch();
     }
 
-    public function Bowe_add(){
+    public function bowe_add(){
        return $this->fetch();
     }
 
-    public function Bowe_insert(){
-    	$param_update = Request::param();
-    	dump($param_update);
+    public function bowe_insert(){
+    	$param_add = Request::param();
+    	// dump($param_add);die;
+        $data = BoweModel::create($param_add);
+
+        dump($data);
+        if($data){
+            $this->success('添加成功');
+        }else{
+            $this->error('添加失败');
+        } 
     }
 }
