@@ -52,6 +52,7 @@ class Classification extends Base
     {   
         $list_index = ClassModel::order("sort desc")->paginate(10,false);
         // dump($list);die;
+        $this->assign('empty','<tr><td style="position: absolute;width: 98%;">对不起,没有找到数据!</td></tr>');
         $this->assign('list', $list_index);
         return $this->fetch();
     }

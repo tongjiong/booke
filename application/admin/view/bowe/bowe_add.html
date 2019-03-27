@@ -11,9 +11,8 @@
 	var project = '__PROJECT__';
 	// var ueditorUrl = "{:url('Ueditor/index')}";
 </script>
-<body class="layui-layout-body">
+<body>
 <div class="layui-layout layui-layout-admin">
-	<blockquote class="layui-elem-quote">添加博文</blockquote>
 	<div class="layui-container popup-addpage">  
 	  <div class="layui-row">
 	    <div class="layui-col-md12">
@@ -42,7 +41,7 @@
 			    <label class="layui-form-label">标题图片：</label>
 			    <div class="layui-input-block">
 			      <button type="button" class="layui-btn" id="upload_img"><i class="layui-icon">&#xe67c;</i>上传图片</button>
-			      <input type="hidden" name="image" value="" id="image_hidden" required lay-verify="image_hidden">
+			      <input type="hidden" name="title_image" value="" id="image_hidden" required lay-verify="image_hidden">
 			      <div id="image_src_banner" style="display:none;" class="img_small">
 			      	<img src="" class="image_src" >
 			      	<i class="layui-icon layui-icon-close image_btn"></i>  
@@ -102,7 +101,7 @@
 	});
 	UE.getEditor('content',{    //content为要编辑的textarea的id
           //initialFrameWidth: 1100,   //初始化宽度
-          // initialFrameHeight: 500,   //初始化高度
+          initialFrameHeight: 500,   //初始化高度
  	});
 	
 

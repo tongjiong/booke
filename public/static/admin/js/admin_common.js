@@ -18,7 +18,7 @@ layer.photos({
         shadeClose: true,
         shade: 0.8,
         area: [datawidth,dataheight],
-        content: datacontent //iframe的url
+        content: [datacontent,'yes'] //iframe的url
       }); 
     }) 
 // });

@@ -58,10 +58,10 @@
 .layui-tab{
 	margin:0!important;
 }
-.tab_hei{
+/*.tab_hei{
 	height: 770px;
 	overflow-y: scroll;
-}
+}*/
 .tab-fixed{
 	position: fixed;
 	width:89%;

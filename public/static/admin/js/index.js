@@ -12,21 +12,12 @@ layui.use('element', function(){
       //新增一个Tab项  
       var exist=$("li[lay-id='"+urll+"']").length; //判断是否存在tab
         if(exist==0){
-          if(txx == 1 && txx){
-             element.tabAdd('test', {
-              title: textt //用于演示
-              ,content: '<iframe class="Mainindex" name="Mainindex" src="'+urll+'" width="100%" height="1300px" frameborder="0"></iframe>'
-              ,id: urll //实际使用一般是规定好的id，这里以时间戳模拟下
-            }) 
-          }else{
-            element.tabAdd('test', {
-              title: textt //用于演示
-              ,content: '<iframe class="Mainindex" name="Mainindex" src="'+urll+'" width="100%" height="900px" frameborder="0"></iframe>'
-              ,id: urll //实际使用一般是规定好的id，这里以时间戳模拟下
-            }) 
-          }
-         
-      }     
+          element.tabAdd('test', {
+            title: textt //用于演示
+            ,content: '<iframe class="Mainindex" name="Mainindex" src="'+urll+'" width="100%" height="900px" frameborder="0"></iframe>'
+            ,id: urll //实际使用一般是规定好的id，这里以时间戳模拟下
+          }) 
+        }     
       element.tabChange('test',urll);
     }
   };

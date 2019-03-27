@@ -33,7 +33,7 @@
           </tr> 
         </thead>
         <tbody>
-          {volist name="list" id="v"}
+          {volist name="list" id="v" empty="$empty"}
             <tr>
               <td>{$v.id}</td>
               <td>{$v.title}</td>
