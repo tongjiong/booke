@@ -38,7 +38,11 @@
                     layer.close(layer.load());
                     layer.msg(msg);
                     setTimeout(function () {
-                        parent.location.reload();
+                        if(url1){
+                            location.href = url1;
+                        }else{
+                            parent.location.reload();  
+                        }
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                     }, 2000);

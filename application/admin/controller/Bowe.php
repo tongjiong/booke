@@ -6,6 +6,15 @@ use think\facade\Request;
 
 class Bowe extends Base
 {
+    public function bowe_edit()
+    {
+        $id = Request::param('id');
+        $bowe_edit = BoweModel::where(['id'=>$id])->find();
+
+        $this->assign('list', $bowe_edit);
+        return $this->fetch();
+    }
+
     public function bowe_index(){
        $bowe_index = BoweModel::order("sort desc")->paginate(10,false);
         // dump($list);die;
