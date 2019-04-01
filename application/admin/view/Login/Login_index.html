@@ -16,27 +16,33 @@
 	      		<div class="login_form">
 	      			<form class="layui-form" action="">
 					  <div class="layui-form-item">
-					    <label class="layui-form-label">账号:</label>
+					    <label class="layui-form-label">登录账号:</label>
 					    <div class="layui-input-block">
-					      <input type="text" name="title" required  lay-verify="required" placeholder="请输入手机号码/邮箱" autocomplete="off" class="layui-input">
+					      <input type="text" name="title" required  lay-verify="required|phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
 					    </div>
 					  </div>
 					  <div class="layui-form-item">
-					    <label class="layui-form-label">密码:</label>
+					    <label class="layui-form-label">登录密码:</label>
 					    <div class="layui-input-block">
-					      <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+					      <input type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
 					    </div>
 					  </div>
+					 
 					  <div class="layui-form-item">
 					    <label class="layui-form-label">验证码:</label>
-					    <div class="layui-input-inline">
-					      <input type="password" name="password" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
+					    <div class="layui-input-block">
+					      <input type="password" name="tell" required lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
 					    </div>
-					    <div class="layui-form-mid layui-word-aux">验证码</div>
+					  </div>
+					   <div class="layui-form-item">
+					    <label class="layui-form-label"></label>
+					    <div class="layui-input-block">
+					      <div>{:captcha_img()}</div>
+					    </div>
 					  </div>
 					  <div class="layui-form-item">
 					    <div class="layui-input-block">
-					      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+					      <button class="layui-btn sign_in" lay-submit lay-filter="formDemo">立即登录</button>
 					      <a class="layui-btn layui-btn-primary">忘记密码</a>
 					    </div>
 					  </div>
@@ -47,6 +53,8 @@
 	  </div>
 	</div>
 </div>
+
+<!-- <div><img src="__STATIC__/admin/images/timg.gif" alt=""></div> -->
 </body>
 </html>
 {include file="public/admin_common_js"}
@@ -60,5 +68,5 @@ layui.use('form', function(){
     layer.msg(JSON.stringify(data.field));
     return false;
   });
-});
+});     
 </script>

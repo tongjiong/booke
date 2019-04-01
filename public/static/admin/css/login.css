@@ -18,5 +18,12 @@
 .login_i .login_form{
 	width: 90%;
 	/*padding: 5%;*/
-	margin-top:10%; 
+	margin-top:7%; 
 }
+.sign_in{
+	width: 62%!important;
+}
+
+/*.layui-form-item{
+	margin-bottom: 23px!important;
+}*/

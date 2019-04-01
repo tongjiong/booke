@@ -4,9 +4,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <title>跳转提示</title>
-    <script src="__STATIC__/layui/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="__STATIC__/layui/css/layui.css" media="all">
-    <script src="__STATIC__/layui/layui.js"></script> 
     <style type="text/css">
         *{ padding: 0; margin: 0; }
         body{ background: #fff; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif; color: #333; font-size: 16px; }
@@ -19,37 +16,34 @@
     </style>
 </head>
 <body>
- <div class="system-message">
-        <input type="hidden" id="msg" value="<?php echo(strip_tags($msg));?>" />
-        <input type="hidden" id="url" value="<?php echo(strip_tags($url));?>" />
-        <input type="hidden" id="wait" value="<?php echo(strip_tags($wait));?>" />
+    <div class="system-message">
+        <?php switch ($code) {?>
+            <?php case 1:?>
+            <h1>:)</h1>
+            <p class="success"><?php echo(strip_tags($msg));?></p>
+            <?php break;?>
+            <?php case 0:?>
+            <h1>:(</h1>
+            <p class="error"><?php echo(strip_tags($msg));?></p>
+            <?php break;?>
+        <?php } ?>
+        <p class="detail"></p>
+        <p class="jump">
+            页面自动 <a id="href" href="<?php echo($url);?>">跳转</a> 等待时间： <b id="wait"><?php echo($wait);?></b>
+        </p>
     </div>
     <script type="text/javascript">
-       layui.use('layer', function(){
-            // var layer = layui.layer;
-            var msg=$('#msg').val();
-            var url1=$('#url').val();
-            var wait=$('#wait').val();
-            // console.log(url1);
-            layer.load(0,{offset: ['45%', "45%"], shade: false});
+        (function(){
+            var wait = document.getElementById('wait'),
+                href = document.getElementById('href').href;
             var interval = setInterval(function(){
-                var time = --wait;
+                var time = --wait.innerHTML;
                 if(time <= 0) {
-                    layer.close(layer.load());
-                    layer.msg(msg);
-                    setTimeout(function () {
-                        if(url1){
-                            location.href = url1;
-                        }else{
-                            parent.location.reload();  
-                        }
-                        var index = parent.layer.getFrameIndex(window.name);
-                        parent.layer.close(index);
-                    }, 2000);
+                    location.href = href;
                     clearInterval(interval);
-                }
-            }, 1000); 
-        });
+                };
+            }, 1000);
+        })();
     </script>
 </body>
 </html>
