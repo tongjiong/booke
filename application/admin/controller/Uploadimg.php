@@ -15,7 +15,7 @@ class Uploadimg extends Base
 	        $data = [
 	        	'code' => '1',
 	        	'msg'  => '上传成功',
-	        	'img_oute' => 'uploads/'.$getSaveName,//图片路径保存
+	        	'img_oute' => '/uploads/'.$getSaveName,//图片路径保存
 	        ];
 	    }else{
 	    	$data = [

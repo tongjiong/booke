@@ -12,9 +12,9 @@ class Base extends Controller
 	// 初始化方法 创建产量,公共方法
     public function initialize()
     {
-        //判断有无admin_username这个session，如果没有，跳转到登陆界面
-        if(!session('admin_id')){
-            echo "<script>window.location.href ='./admin/Login/login_index';</script>";          
+        //判断有无auser这个session，如果没有，跳转到登陆界面
+        if(!Session::get('auser')){
+            echo "<script>window.location.href ='./admin/Login/index';</script>";          
         }
     }
 }

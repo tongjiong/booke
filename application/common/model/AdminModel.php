@@ -5,7 +5,7 @@ use think\Model; //加载模型
 
 class AdminModel extends Model
 {
-	protected $pk = 'id';//默认主键
+	protected $pk = 'admin_id';//默认主键
 	protected $table = 'admin';//默认数据表
 
 	protected $autoWriteTimestamp = true;//自动时间戳

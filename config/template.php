@@ -34,7 +34,7 @@ return [
     'taglib_end'   => '}',
     'tpl_replace_string'   => [
         '__STATIC__'   => '/booke/public/static',
-        '__PROJECT__'   => '/booke/',
+        '__PROJECT__'   => '/booke',
     ],
    
 ];

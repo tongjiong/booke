@@ -6,6 +6,9 @@
   {include file="public/admin_common_css"}
   <link rel="stylesheet" href="__STATIC__/admin/css/login.css">
 </head>
+<script>
+	var goLogin = "{:url('login/get_into')}";
+</script>
 <body>
 <div class="layui-layout layui-layout-admin">
 	<div class="layui-container popup-addpage">  
@@ -14,11 +17,11 @@
 	      	<div class="login_i">
 	      		<h2 class="login_h2">登录页</h2>
 	      		<div class="login_form">
-	      			<form class="layui-form" action="">
+	      			<form class="layui-form" action="" method="post">
 					  <div class="layui-form-item">
 					    <label class="layui-form-label">登录账号:</label>
 					    <div class="layui-input-block">
-					      <input type="text" name="title" required  lay-verify="required|phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+					      <input type="text" name="username" required  lay-verify="required" placeholder="请输入账号" autocomplete="off" class="layui-input">
 					    </div>
 					  </div>
 					  <div class="layui-form-item">
@@ -27,7 +30,7 @@
 					      <input type="password" name="password" required lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
 					    </div>
 					  </div>
-					 
+					  <input type="hidden" name="key" value="rootpass">
 					  <div class="layui-form-item">
 					    <label class="layui-form-label">验证码:</label>
 					    <div class="layui-input-block">
@@ -37,7 +40,8 @@
 					   <div class="layui-form-item">
 					    <label class="layui-form-label"></label>
 					    <div class="layui-input-block">
-					      <div>{:captcha_img()}</div>
+					      <!-- <div>{:captcha_img()}</div> -->
+					      <div><img src="{:captcha_src()}" alt="captcha" id="verify_img" alt="验证码" onclick="refreshVerify()"/></div>
 					    </div>
 					  </div>
 					  <div class="layui-form-item">
@@ -59,14 +63,32 @@
 </html>
 {include file="public/admin_common_js"}
 <script>
+
 //Demo
 layui.use('form', function(){
   var form = layui.form;
-  
   //监听提交
   form.on('submit(formDemo)', function(data){
-    layer.msg(JSON.stringify(data.field));
+    // layer.msg(JSON.stringify(data.field));
+    $.ajax({
+    	url:goLogin,
+    	type:'post',
+    	data:data.field,
+    	success:function(data){
+    		if(data.code == 1){
+    			layer.msg(data.msg);
+    			window.location.href ="__PROJECT__/admin/index";
+    		}else{
+    			layer.msg(data.msg);
+    			refreshVerify();
+    		}
+    	}
+    })
     return false;
   });
-});     
+}); 
+
+function refreshVerify(){
+	$('#verify_img').attr("src", "{:captcha_src()}");
+}
 </script>
