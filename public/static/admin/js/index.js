@@ -35,4 +35,20 @@ layui.use('element', function(){
   element.on('tab(test)', function(elem){
     window.location.hash = $(this).attr('lay-id');
   });
+
+  var element = layui.element;
+  $(".btn_starts").click(function(){
+      var datatitle = $(this).data("title");
+      var datacontent = $(this).data("content");
+      var datawidth = $(this).data("width");
+      var dataheight = $(this).data("height");
+      layer.open({
+        type: 2,
+        title: datatitle,
+        shadeClose: true,
+        shade: 0.8,
+        area: [datawidth,dataheight],
+        content: [datacontent,'yes'] //iframe的url
+      }); 
+    }) 
 });

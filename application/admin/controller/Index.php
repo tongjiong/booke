@@ -7,7 +7,6 @@ use think\facade\Request;
 use think\facade\Session;
 
 class Index extends Base
-
 {
     public function index()
     {
@@ -17,14 +16,7 @@ class Index extends Base
     		'userimage' => Session::get('aimage'),
     		'userauth' => Session::get('auth'),
     	];
-
     	$this->assign('admin_info',$admin_info);
         return $this->fetch();
-    }
-
-
-    public function out(){
-    	Session::clear();
-    	return $this->fetch();
     }
 }

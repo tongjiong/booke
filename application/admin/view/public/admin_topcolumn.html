@@ -15,18 +15,23 @@
         </dl>
       </li> -->
     </ul>
-    <ul class="layui-nav layui-layout-right">
+    <ul class="layui-nav layui-layout-right user-msg">
       <li class="layui-nav-item">
         <a href="javascript:;">
-          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          {empty name="admin_info.userimage"}
+            <img src="__STATIC__/admin/images/userimg.jpeg" class="layui-nav-img">
+          {else /}
+            <img src="{$admin_info.userimage}" class="layui-nav-img">
+          {/empty}
           {$admin_info.username}
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="">基本资料</a></dd>
-          <dd><a href="">安全设置</a></dd>
+          <dd><a href="javascript:;" class="btn_starts" data-title="编辑基本资料" data-content="{:url('user/admin_details')}" data-width="600px" data-height="600px">基本资料</a></dd>
+          <!-- <dd><a href="">安全设置</a></dd> -->
+          <dd><a href="{:url('admin/login/index')}">退出登录</a></dd>
         </dl>
+
       </li>
-      <li class="layui-nav-item"><a href="{:url('index/out')}">退了</a></li>
-      <!-- {:url('index/index/index')} -->
+      <li class="layui-nav-item"><a href="javascript:;" class="btn_starts" data-title="修改密码" data-content="{:url('user/admin_pass')}" data-width="500px" data-height="250px">修改密码</a></li>
     </ul>
   </div>

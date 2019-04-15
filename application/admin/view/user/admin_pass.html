@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+	var pass_up = "{:url('user/admin_pass_update')}";
+</script>
+<body>
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-container popup-addpage">  
+	  <div class="layui-row">
+	    <div class="layui-col-md12">
+	      	<form class="layui-form" method="post">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">原密码：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="phoneprimary" required lay-verify="required" placeholder="原密码" autocomplete="on" class="layui-input">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">新密码：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="phone" required lay-verify="required" placeholder="新密码" autocomplete="on" class="layui-input" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			  </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<script>
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    // layer.msg(JSON.stringify(data.field));
+   	$.post(pass_up,data.field,function(result){
+	    if(result.code == 1){
+	    	layer.msg(result.msg);
+	    	setTimeout(function () {
+                parent.location.reload();
+            }, 1500);
+	    }else{
+			layer.msg(result.msg);
+	    }
+	});
+    return false;
+  });
+});
+</script>
