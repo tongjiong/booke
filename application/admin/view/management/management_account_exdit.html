@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+	var managementU = "{:url('management/management_account_update')}";
+</script>
+<body>
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-container popup-addpage">  
+	  <div class="layui-row">
+	    <div class="layui-col-md12">
+	      	<form class="layui-form" method="post">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">管理员号：</label>
+			    <div class="layui-input-block">
+			      <input type="text" required lay-verify="required" placeholder="管理员账号" autocomplete="on" class="layui-input" value="{$userMsg.username}" disabled>
+			    </div>
+			  </div>
+
+				<div class="layui-form-item">
+				    <label class="layui-form-label">修改密码：</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="password" placeholder="修改新密码" autocomplete="on" class="layui-input" value="">
+				    </div>
+				</div>
+
+		<!-- 		<div class="layui-form-item">
+				    <label class="layui-form-label">给予权限:</label>
+				    <div class="layui-input-block">
+				      <select name="auth" lay-verify="required">
+				      	{if $userMsg.auth == 1}
+				      		<option value="{$userMsg.auth}" class="layui-this">是</option>
+				      		<option value="0">否</option>
+				      	{else/}
+				      		<option value="{$userMsg.auth}" class="layui-this">否</option>
+				      		<option value="1">是</option>
+				      	{/if}
+				      </select>
+				    </div>
+				 </div> -->
+
+				<div class="layui-form-item">
+			    <label class="layui-form-label">密令:</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="show" required lay-verify="required" placeholder="请输入密令" autocomplete="on" class="layui-input" value="">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <input type="hidden" name="id" value="{$userMsg.admin_id}">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			  </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<script>
+
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+  	 $.ajax({
+    	url:managementU,
+    	type:'post',
+    	data:data.field,
+    	success:function(data){
+    		if(data.code == 1){
+    			layer.msg(data.msg);
+    			parent.location.reload();
+    		}else{
+    			layer.msg(data.msg);
+    			
+    		}
+    	}
+    })
+    return false;
+  });
+}); 
+</script>

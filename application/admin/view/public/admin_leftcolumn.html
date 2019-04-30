@@ -2,25 +2,24 @@
     <div class="layui-side-scroll">
       <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
       <ul class="layui-nav layui-nav-tree"  lay-filter="test">
-        <li class="layui-nav-item layui-nav-itemed"><a href=""><i class="layui-icon layui-icon-tree ileft-tb"></i>首页</a></li>
-        
-        <li class="layui-nav-item">
-          <a class="" href="javascript:;"><i class="layui-icon layui-icon-layouts ileft-tb"></i>后台管理</a>
-          <dl class="layui-nav-child">
-            <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
-              <a>账号管理</a>
-            </dd>
-            <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
-              <a>系统配置</a>
-            </dd>
-            <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
-              <a>站点信息</a>
-            </dd>
-            <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
-              <a>操作日志</a>
-            </dd>
-          </dl>
-        </li>
+        <li class="layui-nav-item layui-nav-itemed"><a href="javascript:;"><i class="layui-icon layui-icon-tree ileft-tb"></i>首页</a></li>
+          <li class="layui-nav-item">
+            <a class="" href="javascript:;"><i class="layui-icon layui-icon-layouts ileft-tb"></i>后台管理</a>
+            <dl class="layui-nav-child">
+              <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
+                <a href="javascript:;" class="site-demo-active" data-type="tabAdd" data-url="{:url('Management/management_account')}">账号管理</a>
+              </dd>
+              <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
+                <a>系统配置</a>
+              </dd>
+              <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
+                <a>站点信息</a>
+              </dd>
+              <dd><i class="layui-icon layui-icon-star ileft-tb2"></i>
+                <a>操作日志</a>
+              </dd>
+            </dl>
+          </li>
 
         <li class="layui-nav-item">
           <a class="" href="javascript:;"><i class="layui-icon layui-icon-align-left ileft-tb"></i>分类管理</a>

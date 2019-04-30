@@ -43,7 +43,7 @@ return [
     // 自动读取主库数据
     'read_master'     => false,
     // 是否严格检查字段是否存在
-    'fields_strict'   => true,
+    'fields_strict'   => false,
     // 数据集返回类型
     'resultset_type'  => 'array',
     // 自动写入时间戳字段
@@ -51,7 +51,7 @@ return [
     // 时间字段取出后的默认时间格式
     'datetime_format' => 'Y-m-d H:i:s',
     // 是否需要进行SQL性能分析
-    'sql_explain'     => false,
+    'sql_explain'     => true,
     // Builder类
     'builder'         => '',
     // Query类

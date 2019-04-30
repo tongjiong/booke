@@ -21,7 +21,7 @@
           {empty name="admin_info.userimage"}
             <img src="__STATIC__/admin/images/userimg.jpeg" class="layui-nav-img">
           {else /}
-            <img src="{$admin_info.userimage}" class="layui-nav-img">
+            <img src="__PROJECT__{$admin_info.userimage}" class="layui-nav-img">
           {/empty}
           {$admin_info.username}
         </a>

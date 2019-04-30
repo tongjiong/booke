@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+  var delect_model = "{:url('management/management_account_delect')}";
+</script>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <blockquote class="layui-elem-quote">
+        <div class="layui-row">
+          <div class="layui-col-md4">
+            <h2 class="h2_left">账号管理</h2>
+          </div>
+          <div class="layui-col-md4 layui-col-md-offset4">
+            <button class="layui-btn btn_right btn_starts" data-title="添加管理员" data-content="{:url('management/management_account_add')}" data-width="600px" data-height="400px">添加管理员</button>
+          </div>
+        </div>
+    </blockquote>
+      <table class="layui-table">
+        <thead>
+          <tr>
+            <th>序号</th>
+            <th>管理员账号</th>
+            <!-- <th>管理员密码</th> -->
+            <th>管理员博客名称</th>
+            <!-- <th>管理员头像</th> -->
+            <th>管理员手机</th>
+            <th>管理员权限</th>
+            <th>创建时间</th>
+            <th>操作</th>
+          </tr> 
+        </thead>
+        <tbody>
+          {volist name="list" id="v" empty="暂时没有数据" key="k"}
+            <tr>
+              <td>{$k}</td>
+              <td>{$v.username}</td>
+              <!-- <td>{$v.password}</td> -->
+              <td>{$v.nickname}</td>
+              <!-- <td><img src="__PROJECT__{$v.image}" alt="" width="50px" height="50px"></td> -->
+              <td>{$v.phone}</td>
+              <td>{$v.auth}</td>
+              <td>{$v.create_time}</td>
+              {if $v.auth == 0}
+              <td>
+                <button class="layui-btn layui-btn-normal btn_starts" data-title="编辑" data-content="{:url('management/management_account_exdit')}?id={$v.admin_id}" data-width="600px" data-height="400px">编辑</button>
+                <a class="layui-btn layui-btn-danger btn_delete" data-id="{$v.admin_id}">删除</a>
+              </td>
+              {else/}
+              <td>无法操作</td>
+              {/if}
+            </tr>
+          {/volist}
+        </tbody>
+      </table>
+
+  </div>
+</body>
+</html>
+{include file="public/admin_common_js"}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>layui</title>
+  {include file="public/admin_common_css"}
+</head>
+<script>
+	var managementI = "{:url('management/management_account_insert')}";
+</script>
+<body>
+<div class="layui-layout layui-layout-admin">
+	<div class="layui-container popup-addpage">  
+	  <div class="layui-row">
+	    <div class="layui-col-md12">
+	      	<form class="layui-form" method="post">
+			  <div class="layui-form-item">
+			    <label class="layui-form-label">账号：</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="username" required lay-verify="required" placeholder="管理员账号" autocomplete="on" class="layui-input" value="" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+			      <small style="color:red;">管理员账号不可使用中文</small>
+			    </div>
+			  </div>
+
+				<div class="layui-form-item">
+				    <label class="layui-form-label">密码：</label>
+				    <div class="layui-input-block">
+				      <input type="text" name="password" required lay-verify="required" placeholder="修改新密码" autocomplete="on" class="layui-input" value="" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+				      <small style="color:red;">请设置6位数管理员密码</small>
+				    </div>
+				</div>
+				
+				<div class="layui-form-item">
+			    <label class="layui-form-label">密令:</label>
+			    <div class="layui-input-block">
+			      <input type="text" name="show" required lay-verify="required" placeholder="请输入密令" autocomplete="on" class="layui-input" value="" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')">
+			    </div>
+			  </div>
+
+			  <div class="layui-form-item">
+			    <div class="layui-input-block">
+			      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+			    </div>
+			  </div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+</body>
+</html>
+{include file="public/admin_common_js"}
+<script>
+
+//Demo
+layui.use('form', function(){
+  var form = layui.form;
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+  	 $.ajax({
+    	url:managementI,
+    	type:'post',
+    	data:data.field,
+    	success:function(data){
+    		if(data.code == 1){
+    			layer.msg(data.msg);
+    			parent.location.reload();
+    		}else{
+    			layer.msg(data.msg);
+    			
+    		}
+    	}
+    })
+    return false;
+  });
+}); 
+</script>
